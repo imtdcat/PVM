@@ -22,6 +22,7 @@ public class YunShuZhongXin : Building
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     /// <summary>
     /// 更新连接
     /// </summary>
@@ -51,9 +52,8 @@ public class YunShuZhongXin : Building
         }
         for (int i = 0; i < connectedBuildings.Length; i++)
         {
-            if ((connectedBuildings[i] != null) && (connectedBuildings[i].gameObject.name!= "MainBase(Clone)"))
+            if ((connectedBuildings[i]) && (connectedBuildings[i].gameObject.name!= "MainBase(Clone)"))
             {
-                Debug.Log(i);
                 connectedBuildings[i].gameObject.GetComponent<Building>().isConnectToMainBase = isConnectToMainBase;
             }
         }
@@ -64,7 +64,7 @@ public class YunShuZhongXin : Building
         isConnectToMainBase = false;
         for (int i = 0; i < connectedBuildings.Length; i++)
         {
-            if ((connectedBuildings[i] != null) && (connectedBuildings[i].gameObject.name != "MainBase(Clone)"))
+            if ((connectedBuildings[i]) && (connectedBuildings[i].gameObject.name != "MainBase(Clone)"))
             {
                 connectedBuildings[i].gameObject.GetComponent<Building>().isConnectToMainBase = false;
             }

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// UI管理器
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     //选卡页面

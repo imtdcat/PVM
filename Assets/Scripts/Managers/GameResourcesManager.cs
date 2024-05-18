@@ -9,14 +9,14 @@ using UnityEngine;
 
 public class GameResourcesManager : MonoBehaviour
 {
-    public float iron;//铁
-    public float coal;//煤炭
-    public float water;
-    public float log;//原木
-    public float stone;
-    public float food;
-    public float power;
-    public float steel;//钢
-    public float wood;//木材
+    public float iron; //铁
+    public float coal; //煤炭
+    public float water; //水
+    public float log; //原木
+    public float stone; //石头
+    public float food; //食物
+    public float power; //电力
+    public float steel; //钢
+    public float wood; //木材
     public float money;
 }

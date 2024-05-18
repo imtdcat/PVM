@@ -11,14 +11,14 @@ public class GameManager : MonoBehaviour
         get;
     }
 
-    public UIManager uiManager;
-    public GameResourcesManager resourcesManager;
+    public UIManager uiManager; // UI管理器
+    public GameResourcesManager resourcesManager; // 游戏资源管理器
 
     public GameObject map;//游戏地图
     public int gameStage;//游戏阶段
     public bool mainBasePlaced;//主基地是否放置
     public GameObject selectedBuilding;//被选中的建筑
-    public GameObject mainBase;
+    public GameObject mainBase; // 主基地
     public GameObject buildingsSelector;//选卡UI
     public GameObject cardSlotsInGame;//第三阶段（游戏进行阶段）的卡槽
 
@@ -43,10 +43,11 @@ public class GameManager : MonoBehaviour
             if (!buildingsSelector.activeSelf)
                 buildingsSelector.SetActive(true);
         }
-        else if (gameStage==3)//开始游戏
-        {
-            
-        }
+        // *预留*
+        // else if (gameStage==3)//开始游戏
+        // {
+        //     
+        // }
         PlaceBuilding();
     }
 
@@ -56,23 +57,21 @@ public class GameManager : MonoBehaviour
 
     private void PlaceBuilding()
     {
-        if (selectedBuilding != null)
+        if (selectedBuilding)
         {
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (gameStage == 1)//第一阶段
                 {
                     RaycastHit hit = RaycastFromMousePosition();
-                    if (hit.collider != null)
+                    if (hit.collider)
                     {
                         if (hit.collider.gameObject.layer == 8)
                         {
-                            Debug.Log(111);
                             GameObject mainBase = Instantiate(selectedBuilding, hit.collider.transform.GetChild(0).transform.position, hit.collider.transform.GetChild(0).transform.rotation);
                             mainBase.transform.SetParent(hit.collider.transform.GetChild(0).transform);
                             selectedBuilding = null;
                             gameStage++;
-                            Debug.Log("主基地放置完毕");
                             mainBasePlaced = true;
                         }
                     }
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour
                 if (gameStage==3)//开始游戏
                 {
                     RaycastHit hit = RaycastFromMousePosition();
-                    if (hit.collider != null)
+                    if (hit.collider)
                     {
                         if (hit.collider.gameObject.layer == 8)
                         {
